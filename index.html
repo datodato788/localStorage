@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple localStorage Example</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <button onclick="saveName()">Save</button>
+    <button onclick="showName()">Show</button>
+    <h1 id="h1"></h1>
+
+    <script>
+      // მონაცემების შენახვა localStorage-ში
+      function saveName() {
+        //მიიღო აიდი "name"
+        const name = document.getElementById("name");
+        // "name"-ში რასაც ჩავწერთ  მაგას იღებს
+        nameValue = name.value;
+        // ლოკალ სეტინგში ვინახავთ  სახელად "name" ს და შემდეგ ვწერთ "nameValue " ეს არის ცვლადი
+        localStorage.setItem("name", nameValue);
+      }
+
+      // მონაცემების მიღება localStorage-დან
+      function showName() {
+        //ვიჭერთ "h1" id ით
+        const h1 = document.getElementById("h1");
+        // შემდეგ შენახულ სახელს  ვგზავნით "nameSaved" -ში
+        const nameSaved = localStorage.getItem("name");
+        // და  დაჭერილ"h1" ში ვწერთ შენახულ სახელს
+        h1.innerHTML = nameSaved;
+      }
+    </script>
+  </body>
+</html>
